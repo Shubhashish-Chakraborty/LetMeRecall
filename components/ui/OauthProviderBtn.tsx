@@ -1,106 +1,61 @@
-import { Github } from '@/icons/Github';
-import { Google } from '@/icons/GoogleColor';
-import React from 'react';
-import styled from 'styled-components';
+import { Github } from "@/icons/Github";
+import { Google } from "@/icons/GoogleColor";
+import React from "react";
 
 const OauthProvider = () => {
-    const handleGoogleLogin = () => {
-        window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`;
-    };
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`;
+  };
 
-    const handleGithubLogin = () => {
-        window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/github`;
-    };
+  const handleGithubLogin = () => {
+    window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/github`;
+  };
 
-    return (
-        <StyledWrapper>
-            <div className="shubh-style gap-y-3">
-                <button onClick={handleGoogleLogin} className="oauthButton">
-                    <div className='mr-2'>
-                        <Google />
-                    </div>
-                    Continue with Google
-                </button>
+  return (
+    <div className=" flex     text-white  w-[18cm] h-[3cm] justify-center items-center p-5">
+      <button
+        onClick={handleGoogleLogin}
+        className="flex items-center gap-3 px-6 py-3 border-r-[2px] "
+      >
+        {/* Google Icon */}
+        <div className="">
+          <Google />
+        </div>
 
-                <button onClick={handleGithubLogin} className="oauthButton">
-                    <div className='mr-2'>
-                        <Github />
-                    </div>
-                    Continue with Github
-                </button>
-            </div>
-        </StyledWrapper>
-    );
+        {/* Text */}
+        <span className="text-base font-medium text-[#8C8C8C]">
+          Continue with&nbsp;
+          <span className=" text-2xl text-[#EA4335]">G</span>
+          <span className=" text-2xl text-[#FBBC05]">o</span>
+          <span className=" text-2xl text-[#34A853]">o</span>
+          <span className=" text-2xl text-[#4285F4]">g</span>
+          <span className=" text-2xl text-[#EA4335]">l</span>
+          <span className=" text-2xl text-[#FBBC05]">e</span>
+        </span>
+      </button>
+
+      <button
+        onClick={handleGithubLogin}
+        className="flex items-center gap-3 px-6 py-3 border-l-[2px]   "
+      >
+        {/* Google Icon */}
+        <div className="">
+          <Github />
+        </div>
+
+        {/* Text */}
+        <span className="text-base font-medium text-[#8C8C8C] ">
+          Continue with&nbsp;
+          <span className=" text-2xl  text-[#fafbfc]">G</span>
+          <span className=" text-2xl  text-[#fafbfc]">i</span>
+          <span className=" text-2xl  text-[#fafbfc]">t</span>
+          <span className=" text-2xl  text-[#fafbfc]">h</span>
+          <span className=" text-2xl  text-[#fafbfc]">u</span>
+          <span className=" text-2xl  text-[#fafbfc]">b</span>
+        </span>
+      </button>
+    </div>
+  );
 };
-
-const StyledWrapper = styled.div`
-  
-  .shubh-style {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .form {
-    --background: #d3d3d3;
-    --bg-color: #fff;
-    --main-color: #323232;
-    --font-color: #323232;
-    padding: 20px;
-    background: var(--background);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border-radius: 5px;
-    border: 2px solid var(--main-color);
-    box-shadow: 4px 4px var(--main-color);
-  }
-
-  .oauthButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 250px;
-    height: 40px;
-    border-radius: 5px;
-    border: 2px solid var(--main-color);
-    background-color: var(--bg-color);
-    box-shadow: 4px 4px var(--main-color);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--font-color);
-    cursor: pointer;
-    transition: all 250ms;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  .oauthButton::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background-color: #212121;
-    z-index: -1;
-    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    transition: all 250ms;
-  }
-
-  .oauthButton:hover::before {
-    width: 100%;
-    background-color: azure;
-  }
-
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-`;
 
 export default OauthProvider;
